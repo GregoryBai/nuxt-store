@@ -12,15 +12,15 @@
 </template>
 
 <script>
-import { CATEGORIES_URL } from '~/assets/js/utils'
-
 export default {
-  data() {
-    const navLinks = []
-    return { navLinks }
+  computed: {
+    navLinks() {
+      return this.$store.state.categories
+    },
   },
-  async created() {
-    this.navLinks = await fetch(CATEGORIES_URL).then((resp) => resp.json())
+
+  created() {
+    this.$store.dispatch('getCategories')
   },
 }
 </script>

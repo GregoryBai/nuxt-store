@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout__root">
     <TheHeader />
     <TheCart v-if="false" />
     <TheMask v-if="false" />
@@ -23,20 +23,25 @@
 }
 
 body {
-  min-height: 100vh;
   background-color: $secondary-color;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
 }
-
+.layout__root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .layout__wrapper {
   display: flex;
+  flex: auto 1 1;
+  border: 5px solid yellow;
 
   & .wrapper__item--nav {
     flex: 248px 0 1;
   }
 
   & .wrapper__item--content {
-    flex: 1 1;
+    flex: auto 1 1;
   }
 }
 </style>
