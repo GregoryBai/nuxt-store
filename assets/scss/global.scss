@@ -1,0 +1,66 @@
+$main-color: #ffffff;
+$secondary-color: #f8f8f8;
+
+$icon-primary-color: #959dad;
+$icon-accent-color: #f2c94c;
+$icon-warning-color: #eb5757;
+
+$main-font: 'PT Sans', sans-serif;
+
+$font-primary-color: #1f1f1f;
+$font-secondary-color: #59606d;
+$font-cart-color: #000000;
+$font-contrast: #ffffff;
+
+$link-active-color: #1f1f1f;
+$link-visited-color: #959dad;
+$link-to-visit-color: #59606d;
+
+$mask-color: #ffffff;
+$mask-opacity: 0.8;
+
+@mixin button {
+  outline: none;
+  padding: 14px;
+  color: $font-contrast;
+  font-size: 16px;
+  text-align: center;
+  background: #1f1f1f;
+  border: none;
+  border-radius: 8px;
+}
+
+@mixin bold-font {
+  font-weight: 700;
+}
+
+@mixin main-font {
+  font-family: $main-font;
+}
+
+@mixin link-active {
+  font-family: $main-font;
+  color: $link-active-color;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+@mixin link-visited {
+  font-family: $main-font;
+  color: $link-visited-color;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+@mixin link-to-visit {
+  font-family: $main-font;
+  color: $link-to-visit-color;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

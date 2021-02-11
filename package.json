@@ -11,6 +11,7 @@
     "lint": "yarn lint:js"
   },
   "dependencies": {
+    "@nuxtjs/style-resources": "^1.0.0",
     "core-js": "^3.8.3",
     "nuxt": "^2.14.12"
   },
@@ -23,6 +24,9 @@
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.5.0",
-    "prettier": "^2.2.1"
+    "fibers": "^5.0.0",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.7",
+    "sass-loader": "10"
   }
 }
