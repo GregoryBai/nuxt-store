@@ -4,6 +4,7 @@ export const state = {
   categories: [],
   categoryItems: [],
   cartItems: [],
+  cartVisible: false,
 }
 
 export const mutations = {
@@ -15,6 +16,26 @@ export const mutations = {
   },
   addCartItems(state, payload) {
     state.cartItems.push(payload)
+  },
+  closeCart(state) {
+    state.cartVisible = false
+  },
+  openCart(state) {
+    state.cartVisible = true
+  },
+  toggleCart(state) {
+    return (state.cartVisible = !state.cartVisible)
+  },
+
+  removeCartItem(state, payload) {
+    const toBeRemovedId = state.cartItems.findIndex(
+      (item) => item.id === payload
+    )
+    state.cartItems.splice(toBeRemovedId, 1)
+  },
+
+  submitOrder(state) {
+    state.cartItems = []
   },
 }
 
@@ -40,5 +61,12 @@ export const getters = {
 
   getNCategoryItems(state) {
     return (number) => state.categoryItems.slice(0, number)
+  },
+
+  getCartItems(state) {
+    return state.cartItems
+  },
+  getCartItemsLength(state) {
+    return state.cartItems.length
   },
 }

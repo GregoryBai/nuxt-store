@@ -1,14 +1,19 @@
 <template>
   <div class="catalogue__items">
     <div class="items__sort">
-      <Select
-        :options="selectOptions"
-        :value="selectValue"
-        @input="handleSelect"
-      />
+      <Select v-model="selectValue" :options="selectOptions" />
     </div>
     <div class="item__output">
-      <div v-for="item in items" :key="item.id" class="catalogue__item">x</div>
+      <Card
+        v-for="item in items"
+        :key="item.id"
+        class="catalogue__item"
+        :img-url="item.photo"
+        :price="item.price"
+        :rating="item.rating"
+        :name="item.name"
+        @add-item="addItem(item)"
+      />
     </div>
   </div>
 </template>
@@ -28,8 +33,26 @@ export default {
 
   computed: {
     ...mapGetters(['getCategoryName']),
+
     items() {
+      switch (this.selectValue) {
+        case 'цене':
+          return this.itemsByPrice
+        case 'популярности':
+          return this.itemsByPopularity
+        default:
+          return this.itemsDefault
+      }
+    },
+
+    itemsDefault() {
       return this.$store.getters.getNCategoryItems(12)
+    },
+    itemsByPopularity() {
+      return [...this.itemsDefault].sort((a, b) => b.rating - a.rating)
+    },
+    itemsByPrice() {
+      return [...this.itemsDefault].sort((a, b) => b.price - a.price)
     },
   },
 
@@ -41,6 +64,10 @@ export default {
     handleSelect(value) {
       this.selectValue = value
     },
+
+    addItem(data) {
+      this.$store.commit('addCartItems', data)
+    },
   },
 }
 </script>
@@ -51,19 +78,20 @@ export default {
   padding: 42px 88px 0 49px;
   display: flex;
   flex-direction: column;
-}
 
-.catalogue__item {
-  background-color: red;
-  /* &:nth-child(1n + 13) {
-    background-color: yellow;
-    display: none;
-  } */
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+  }
 }
 
 .items__sort {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 34px;
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+  }
 }
 
 .item__output {
@@ -71,7 +99,7 @@ export default {
   justify-content: center;
   align-content: start;
   display: grid;
-  gap: 16px;
+  gap: 16px 32px;
   grid-template-rows: repeat(auto-fit, 272px);
   grid-template-columns: repeat(auto-fit, 264px);
 }

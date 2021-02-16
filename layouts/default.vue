@@ -1,16 +1,25 @@
 <template>
   <div class="layout__root">
     <TheHeader />
-    <TheCart v-if="false" />
-    <TheMask v-if="false" />
+    <TheCart v-if="cartVisible" />
+    <TheMask v-if="cartVisible" />
     <div class="layout__wrapper">
-      <TheNavbar class="wrapper__item--nav" />
-      <main class="wrapper__item--content">
+      <TheNavbar class="layout__nav" />
+      <main class="layout__content">
         <Nuxt />
       </main>
     </div>
   </div>
 </template>
+<script>
+import { mapState } from 'vuex'
+
+export default {
+  computed: {
+    ...mapState(['cartVisible']),
+  },
+}
+</script>
 
 <style lang="scss">
 *,
@@ -25,6 +34,7 @@
 body {
   background-color: $secondary-color;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
+  @include scroll;
 }
 .layout__root {
   height: 100%;
@@ -33,15 +43,17 @@ body {
 }
 .layout__wrapper {
   display: flex;
-  flex: auto 1 1;
-  border: 5px solid yellow;
-
-  & .wrapper__item--nav {
-    flex: 248px 0 1;
+  flex: 1 1 auto;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
   }
 
-  & .wrapper__item--content {
-    flex: auto 1 1;
+  & .layout__nav {
+    flex: 0 1 248px;
+  }
+
+  & .layout__content {
+    flex: 1 1 auto;
   }
 }
 </style>

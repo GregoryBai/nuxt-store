@@ -1,5 +1,5 @@
 <template>
-  <div>C A T A L O G U E</div>
+  <div></div>
 </template>
 
 <script>

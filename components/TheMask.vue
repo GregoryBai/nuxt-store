@@ -1,5 +1,7 @@
 <template>
-  <div class="mask"></div>
+  <transition mode="out-in" name="fade">
+    <div class="mask" />
+  </transition>
 </template>
 
 <script>

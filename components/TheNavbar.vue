@@ -46,10 +46,16 @@ export default {
   flex-direction: column;
   justify-content: center;
   gap: 16px;
+  @media screen and (max-width: 768px) {
+    flex-flow: row wrap;
+    margin: 0;
+    padding: 16px;
+  }
 }
 
 .nav__link {
   @include link-active;
+  @include transition;
   color: $link-visited-color;
   &:hover {
     color: $link-to-visit-color;

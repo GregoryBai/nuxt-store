@@ -1,13 +1,25 @@
 <template>
   <header class="header">
     <p class="header__text">TestList</p>
-    <div class="header__cart"><span class="cart__number">5</span></div>
+    <div class="header__cart" @click="toggleCart">
+      <span class="cart__number">{{ numberOfItems }}</span>
+    </div>
   </header>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
-  props: {},
+  computed: {
+    numberOfItems() {
+      return this.$store.getters.getCartItemsLength
+    },
+  },
+
+  methods: {
+    ...mapMutations(['toggleCart']),
+  },
 }
 </script>
 
