@@ -54,7 +54,7 @@
         <div v-if="!formFilled && warningVisible" class="form__warning">
           <span class="warning__sign">!!</span>
           <p class="warning__text">
-            Все поля обязательные.После удачной отправки формы содержимое
+            Все поля обязательные. После удачной отправки формы содержимое
             корзины очищается
           </p>
         </div>
@@ -141,6 +141,8 @@ export default {
   @media screen and (max-width: 768px) {
     left: 0;
     width: auto;
+    padding: 10px;
+    text-align: center;
   }
 }
 
@@ -149,17 +151,22 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-}
-.cart__title {
-  font-size: 32px;
-  font-weight: bold;
-  align-self: start;
-}
 
-.cart__close {
-  background: center no-repeat url(~assets/svg/cross.svg);
-  width: 14px;
-  height: 14px;
+  .cart__title {
+    font-size: 32px;
+    font-weight: bold;
+    align-self: start;
+  }
+
+  .cart__close {
+    background: center no-repeat url(~assets/svg/cross.svg);
+    width: 14px;
+    height: 14px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 10px;
+  }
 }
 
 .cart__form,
@@ -198,6 +205,7 @@ export default {
 .form__warning {
   width: 100%;
   display: flex;
+  margin-bottom: 20px;
   gap: 8px;
 
   .warning__sign {
@@ -218,6 +226,7 @@ export default {
   @include flex-center;
   flex-direction: column;
   gap: 2px;
+
   .submitted__emoji {
     background: center no-repeat url(~assets/img/ok_emoji.png);
     margin-bottom: 22px;

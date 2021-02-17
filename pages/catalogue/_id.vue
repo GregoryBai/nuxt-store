@@ -80,7 +80,7 @@ export default {
   flex-direction: column;
 
   @media screen and (max-width: 768px) {
-    padding: 20px;
+    padding: 10px;
   }
 }
 
@@ -91,6 +91,7 @@ export default {
 
   @media screen and (max-width: 768px) {
     justify-content: center;
+    margin-bottom: 10px;
   }
 }
 

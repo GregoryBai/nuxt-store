@@ -26,13 +26,13 @@
 <script>
 export default {
   props: [
-    'img-url',
+    'imgUrl',
     'price',
     'rating',
     'name',
-    'add-item',
-    'in-cart',
-    'remove-item',
+    'addItem',
+    'inCart',
+    'removeItem',
   ],
 
   methods: {
@@ -110,8 +110,10 @@ export default {
     display: flex;
     justify-content: space-between;
     gap: 22px;
-
     align-items: center;
+    @media screen and (max-width: 768px) {
+      padding: 10px;
+    }
 
     .card__img {
       max-height: 90px;

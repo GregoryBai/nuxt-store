@@ -1,11 +1,11 @@
 import { CATEGORIES_URL, CATEGORY_URL } from '~/assets/js/utils'
 
-export const state = {
+export const state = () => ({
   categories: [],
   categoryItems: [],
   cartItems: [],
   cartVisible: false,
-}
+})
 
 export const mutations = {
   setCategories(state, payload) {

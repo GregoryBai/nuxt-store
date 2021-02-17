@@ -30,20 +30,22 @@ export default {
   justify-content: space-between;
   background-color: $main-color;
   position: sticky;
+  padding: 0 108px 0 88px;
+  @media screen and (max-width: 768px) {
+    padding: 0 30px;
+  }
 }
 
 .header__text {
   @include bold-font;
   color: $font-secondary-color;
   font-size: 22px;
-  margin-left: 88px;
 }
 
 .header__cart {
   position: relative;
   min-width: 24px;
   min-height: 26px;
-  margin-right: 108px;
   background: no-repeat center url(~assets/svg/cart.svg);
 }
 
