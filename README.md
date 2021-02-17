@@ -1,20 +1,17 @@
-# nuxt
+### Visit the [Link](https://gregorybai.github.io/nuxt-store/catalogue/) to view the store. 
+*Click on the category of items you'd like to visit*
 
-## Build Setup
 
-```bash
-# install dependencies
-$ yarn install
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+#### -Beyond the minimum- #### 
+- Mobile version
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+#### -Done incorrectly- ####
+- did not use css-modules, as I did not realize what it was when I was just starting off
+- not pixel-perfect (not sure if this was a requirement)
+- the '/' and '/catalogue' routes are virtually the same, you have to choose a caterogy in the NavBar to navigate further (e.g. to '/catalogue/2)
 
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+#### -To ask- #### 
+- How to navigate from a route to itself but with a param
+- How to add animations (transitions, as I could not figure out how to make they work)
+- TS?
